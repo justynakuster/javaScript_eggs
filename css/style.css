@@ -5,6 +5,7 @@
     display: block;
     padding: 20px;
     float: left;
+    //border: 2px dashed silver;
 } 
 #container::after{
   content: "";
@@ -20,19 +21,71 @@
     border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
     margin-right: 3px;
 }
-#findColor {
-    width: 100px;
-    height: 100px;
+.blank{
+    height: 150px;
+}
+#mainColor {
+    width: 70px;
+    height: 70px;
     border: 1px solid black;
     border-radius: 5px;
     float: left;
     position: relative;
     display: inline-block;
+    visibility: hidden;
+    margin-top: 20px;
+    margin-left: 20px;
 }
-#findColor span {
+#mainColor span {
     font-size: 16px;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     padding: 10px;
+    visibility: hidden;
+}
+#instruction, #time {
+    font-family: Arial, Tahoma;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+#finalScore {
+    height: 20px;
+    width: 20px;
+    font-family: Arial, Tahoma;
+    font-size: 16px;
+    font-weight: 700;
+    color: red;
+}
+#timeCount{
+    font-family: Arial, Tahoma;
+    font-size: 14px;
+}
+#clear {
+    visibility: hidden;
+    background-color: orange;
+	font-size: 18px;
+	font-weight: 700px;
+	text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.2em;
+	position: absolute;
+	border-radius: 12px;
+    padding: 8px 22px;
+	margin: 15px -05px;
+}
+#start {
+    background-color: orange;
+	font-size: 18px;
+	font-weight: 700px;
+	text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.2em;
+	position: absolute;
+	border-radius: 12px;
+    padding: 8px 22px;
+	margin: 15px 115px;
 }
