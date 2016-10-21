@@ -1,3 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+@keyframes into-animation {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
 #container {
     width: 580px;
     height: 400px;
@@ -5,12 +13,25 @@
     display: block;
     padding: 20px;
     float: left;
-    //border: 2px dashed silver;
 } 
 #container::after{
   content: "";
   clear: both;
   display: block;
+}
+#intro {
+    background-image: url('../img/logo01.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center, center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    -webkit-animation: into-animation 7s infinite; /* Safari 4+ */
+    -moz-animation:    into-animation 7s infinite; /* Fx 5+ */
+    -o-animation:      into-animation 7s infinite; /* Opera 12+ */
+    animation:         into-animation 7s infinite; /* IE 10+, Fx 29+ */
+    
 }
 .eggs {
     display: inline-block;
@@ -21,7 +42,7 @@
     border-radius:         50%  50%  50%  50%  / 60%   60%   40%  40%;
     margin-right: 3px;
 }
-.blank{
+.blankSpace{
     height: 150px;
 }
 #mainColor {
@@ -35,14 +56,6 @@
     visibility: hidden;
     margin-top: 20px;
     margin-left: 20px;
-}
-#mainColor span {
-    font-size: 16px;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 10px;
-    visibility: hidden;
 }
 #instruction, #time {
     font-family: Arial, Tahoma;

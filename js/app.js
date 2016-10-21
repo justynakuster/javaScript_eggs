@@ -1,15 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var colors = ['olive', 'lime', 'pink', 'red', 'violet', 'lightgreen', 'yellow', 'turquoise', 'orange', 'blue', 'purple', 'lightblue'];
-
+    var colors = ['rgb(0,128,128)', 'rgb(76,249,37)', 'rgb(255,91,215)', 'rgb(239,0,65)', 'rgb(194,37,249)', 'rgb(164,222,191)', 'rgb(255,227,61)', 'rgb(37,249,233)', 'rgb(251,163,54)', 'rgb(37,115,249)', 'rgb(121,5,122)', 'rgb(180,203,244)'];
+    
     $('#score, #timeCount').css("visibility", "hidden");
     
+    var intro = document.getElementById('intro');
+        intro.addEventListener("click", function(){
+        intro.scrollTo('#container',);
+        });
+    
+
 //ODLICZANIE CZASU PO KLIKNIĘCIU START   
     var start = document.getElementById('start');
-        start.addEventListener("click", function(){
+    start.addEventListener("click", function(){
             var parentEggs = document.getElementById("container");
-            $('#mainColor, #score, #timeCount').css("visibility", "visible");
+            $('#mainColor, #score, #timeCount, #logo').css("visibility", "visible");
             $('#start, #instruction').css("visibility", "hidden");
-            
+        
         //USTAWIENIE KOLOROWYCH JAJEK W TABLICY    
         for(var i = 0; i < 105; i++){
             var rand = colors[Math.floor(Math.random()*colors.length)];
@@ -47,19 +53,19 @@ document.addEventListener("DOMContentLoaded", function() {
                     rand = colors[Math.floor(Math.random() * colors.length)];
 
         //NALICZANIE PKT ZA KLIKNIĘTE JAJKA           
-                if(mainColor.style.backgroundColor == this.style.backgroundColor){
-                   console.log("jestem równy");                               
-                    var final = tempScore + 5;
-                    console.log(final);
-                    score.innerHTML = final;
-                } else {               
-                    var final = tempScore - 5;
-                    console.log(final);
-                    score.innerHTML = final;    
-                } 
-                $(this).css("background-color", rand); 
-            }); 
-        }
+                    if(mainColor.style.backgroundColor == this.style.backgroundColor){
+                       console.log("jestem równy");                               
+                        var final = tempScore + 5;
+                        console.log(final);
+                        score.innerHTML = final;
+                    } else {               
+                        var final = tempScore - 5;
+                        console.log(final);
+                        score.innerHTML = final;    
+                    } 
+                    $(this).animate({backgroundColor: rand}, 500);      
+                }); 
+            }
                 var counter = setInterval(timer, 1000); //1000 will  run it every 1s.
                 var IsFunctionCalled = false;
 
@@ -73,13 +79,13 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     }
                 function countdown(minutes) {
-                    var seconds = 10;
+                    var seconds = 30;
                     var mins = minutes;
                     var parentEggs = document.getElementById("container");
                     
                     function tick() {
                         var counterVal = document.getElementById("time");
-                        var current_minutes = mins - 1
+                        var current_minutes = mins - 1;
                         seconds--;
                         counterVal.innerHTML =
                         current_minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
@@ -87,10 +93,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
                         if (result == "0:00") {
                             clearInterval(counter);
-                            $('#container').css("visibility", "hidden");
-                            $('#mainColor').css("visibility", "hidden");
-                            $('#start').css("visibility", "hidden");
+                            $('#container, #mainColor, #start').css("visibility", "hidden");
                             $('#clear').css("visibility", "visible");
+                            //alert("koniec czasu gry");
                             return false; 
                         } 
                         if (seconds > 0) {
@@ -103,14 +108,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                     tick();
                 }
-            preventE
-});    
+
+    });    
 //NEW GAME
-    var end = document.getElementById('clear');
-    end.addEventListener("click", function(){
-        $('#container,#mainColor, #score, #start').css("visibility", "visible");
+    var newGame = document.getElementById('clear');
+    newGame.addEventListener("click", function(){
+        $('#container,#mainColor, #score, #start, #logo').css("visibility", "visible");
         $('#clear').css("visibility", "hidden");
         
+//        $(this).attr("disabled", "disabled");
+//        block();
+//
+//        function block() {
+//        //alert("blokuje przycisk");
+//        setTimeout('$("#start").removeAttr("disabled")', 1500);
+//        }
         });
 });
 
